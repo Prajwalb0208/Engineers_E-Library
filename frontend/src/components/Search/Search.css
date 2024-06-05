@@ -1,54 +1,66 @@
-/* Search.css */
-
 .search-container {
-    width: 80%;
-    margin: 0 auto;
-  }
-  
-  .search-header {
-    margin-bottom: 20px;
-    text-align: center;
-  }
-  
-  .search-header hr {
-    border: 1px solid #ccc;
-  }
-  
-  .books-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
-    padding: 20px;
-  }
-  
-  .book-card {
-    border: 1px solid #ccc;
-    padding: 10px;
-    border-radius: 5px;
-    text-align: center;
-  }
-  
-  .book-card img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 5px;
-  }
-  
-  .pagination {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 20px 0;
-  }
-  
-  .pagination button {
-    margin: 0 10px;
-    padding: 10px 20px;
-    cursor: pointer;
-  }
-  
-  .pagination button:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-  }
-  
+  padding: 20px;
+}
+
+.search-header {
+  text-align: center;
+}
+
+.books-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.book-card {
+  width: 200px;
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: center;
+  position: relative;
+}
+
+.book-card img {
+  width: 100%;
+  height: auto;
+}
+
+.book-card h3 {
+  font-size: 1.2em;
+}
+
+.book-card p {
+  color: #555;
+}
+
+.book-card button {
+  display: block; /* Ensure buttons are displayed as block elements */
+  margin: 5px auto; /* Center buttons horizontally */
+  padding: 5px 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.book-card button:hover {
+  background-color: #0056b3;
+}
+
+
+.pagination {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.pagination button {
+  padding: 10px 20px;
+  margin: 0 5px;
+  cursor: pointer;
+}
+
+.viewer-container {
+  width: 100vw;
+  height: 100vh;
+}

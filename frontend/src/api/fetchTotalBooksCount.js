@@ -1,14 +1,18 @@
-// src/api/fetchTotalBooksCount.js
-
-import fetchBooks from './openLibraryAPI';
-
-const TOTAL_BOOKS_TO_FETCH = 3200;
+import axios from 'axios';
 
 const fetchTotalBooksCount = async () => {
+  const url = 'https://openlibrary.org/search.json';
+  const params = {
+    q: 'engineering',
+    subject: 'engineering',
+    limit: 1, // Only need to fetch one book to get the total count
+    has_fulltext: true, // Only count books with fulltext available
+  };
+
   try {
-    const allBooks = await fetchBooks(1); // Fetch books for the first page
-    const totalBooksCount = allBooks.numFound || 800; // Extract total count from API response
-    return Math.min(totalBooksCount, TOTAL_BOOKS_TO_FETCH); // Return the minimum of actual count and the limit
+    const response = await axios.get(url, { params });
+    const { numFound } = response.data;
+    return numFound;
   } catch (error) {
     console.error('Error fetching total books count:', error);
     throw error;

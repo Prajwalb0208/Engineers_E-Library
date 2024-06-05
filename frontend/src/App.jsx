@@ -1,15 +1,24 @@
 import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Search from './components/Search/Search';
+import Viewer from './components/Viewer/Viewer';
 import Navbar from './components/Navbar/navbar';
 import Header from './components/Header/Header';
-import Search from './components/Search/Search';
+import Footer from './components/Footer/Footer';
 
 const App = () => {
   return (
-    <div className="app">
-      <Navbar />
-      <Header />
-      <Search/>
-    </div>
+    <Router>
+      <div className="app">
+        <Navbar />
+        <Header />
+        <Routes>
+          <Route path="/" element={<Search />} />
+          <Route path="/viewer" element={<Viewer />} />
+        </Routes>
+        <Footer />
+      </div>
+    </Router>
   );
 };
 
