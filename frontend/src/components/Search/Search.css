@@ -1,66 +1,33 @@
-.search-container {
-  padding: 20px;
-}
-
-.search-header {
-  text-align: center;
-}
-
-.books-grid {
+.search-bar-container {
   display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  justify-content: center;
+  align-items: center;
+  padding: 20px 2px;
 }
 
-.book-card {
-  width: 200px;
-  border: 1px solid #ddd;
-  padding: 10px;
-  text-align: center;
-  position: relative;
+.search-input {
+  flex: 1; /* Take remaining space */
+  padding: 8px; /* Add padding for better spacing */
+  border: 1px solid #ccc; /* Add border for visual separation */
+  border-radius: 4px; /* Round the corners */
 }
 
-.book-card img {
-  width: 100%;
-  height: auto;
+.category-select {
+  margin-left: 10px; /* Add margin between input and select */
+  padding: 8px; /* Add padding for better spacing */
+  border: 1px solid #ccc; /* Add border for visual separation */
+  border-radius: 4px; /* Round the corners */
 }
 
-.book-card h3 {
-  font-size: 1.2em;
+.search-button {
+  margin-left: 10px; /* Add margin between select and button */
+  padding: 8px 16px; /* Add padding for better spacing */
+  background-color: #007bff; /* Set background color */
+  color: #fff; /* Set text color */
+  border: none; /* Remove default border */
+  border-radius: 4px; /* Round the corners */
+  cursor: pointer; /* Add pointer cursor on hover */
 }
 
-.book-card p {
-  color: #555;
-}
-
-.book-card button {
-  display: block; /* Ensure buttons are displayed as block elements */
-  margin: 5px auto; /* Center buttons horizontally */
-  padding: 5px 10px;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  cursor: pointer;
-}
-
-.book-card button:hover {
-  background-color: #0056b3;
-}
-
-
-.pagination {
-  text-align: center;
-  margin-top: 20px;
-}
-
-.pagination button {
-  padding: 10px 20px;
-  margin: 0 5px;
-  cursor: pointer;
-}
-
-.viewer-container {
-  width: 100vw;
-  height: 100vh;
+.search-button:hover {
+  background-color: #0056b3; /* Darker background color on hover */
 }
