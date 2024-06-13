@@ -10,7 +10,7 @@ const Navbar = () => {
       <img src={assets.logo} alt="Logo" className='logo' />
       <ul className="navbar-menu">
         <li>Home</li>
-        <li>Branches</li>
+        <li>All Books</li>
         <li>Mobile-app</li>
         <li>Contact us</li>
       </ul>

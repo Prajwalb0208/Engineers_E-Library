@@ -5,10 +5,11 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 // import Viewer from './components/Viewer/Viewer';
 import Navbar from './components/Navbar/navbar';
 import Header from './components/Header/Header';
-import Body from './components/Body/Body';
+// import Body from './components/Body/Body';
 import Footer from './components/Footer/Footer';
 import BooksGrid from './components/Test/BooksGrid';
 // import SearchBar from './components/Search/Search';
+import Abc from '../abc';
 
 const App = () => {
   return (
@@ -20,6 +21,7 @@ const App = () => {
         {/* <SearchBar/> */}
         <BooksGrid/>
         <Footer />
+        <Abc/>
       </div>
     </Router>
   );
