@@ -23,8 +23,9 @@
     gap: 40px;
 }
 .navbar-right img {
-    border: 3px solid rgb(20, 20, 105);
+    /* border: 3px solid rgb(0, 37, 2); */
     border-radius: 100%;
+    filter: brightness(400%);
     transition: transform 0.3s ease;
     width: 35px;  /* Ensure images are the same size */
     height: 35px; /* Ensure images are the same size */

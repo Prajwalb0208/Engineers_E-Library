@@ -1,3 +1,10 @@
+#books-grid{
+  padding-top: 20px;
+}
+#books-grid h2{
+  font-size: 24.5px;
+  margin-bottom: 8px;
+}
 .books-grid {
   display: flex;
   flex-wrap: wrap;
