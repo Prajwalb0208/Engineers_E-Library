@@ -29,7 +29,7 @@ const App = () => {
         <Header />
         <BooksGrid/>
         {/* <LoginPopup/> */}
-        <UserProfile/>
+{/*         <UserProfile/> */}
         <Footer />
       </div>
     </Router>
