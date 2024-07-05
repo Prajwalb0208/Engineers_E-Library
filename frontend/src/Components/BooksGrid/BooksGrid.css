@@ -1,0 +1,102 @@
+#books-grid {
+  padding-top: 20px;
+}
+
+#books-grid h2 {
+  font-size: 24.5px;
+  margin-bottom: 8px;
+}
+
+.books-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  padding: 20px 2px;
+}
+
+.book-card {
+  position: relative; /* Ensure position context for absolute positioning */
+  flex: 1 1 calc(25% - 20px); /* 4 books per row */
+  box-sizing: border-box;
+  border: 1px solid #ddd;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.book-card h2 {
+  font-size: 1.25em;
+  margin-bottom: 8px;
+}
+
+.book-card img {
+  width: 150px;
+  height: 200px;
+  object-fit: cover;
+  margin: 0 auto 15px auto; /* Center the image horizontally and add margin at the bottom */
+}
+
+.book-card p {
+  margin: 4px 0;
+}
+
+.book-info {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  padding: 4px 10px;
+  background-color: rgba(190, 210, 255, 0.7);
+  color: #000000;
+  border-radius: 40px;
+  z-index: 10;
+  cursor: pointer;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  margin-top: auto; /* Push buttons to the bottom */
+}
+
+.add-to-cart {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.add-to-cart:hover {
+  background-color: #0056b3;
+}
+
+.favorite {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  margin-left: 8px;
+  transition: transform 0.3s ease;
+}
+
+.favorite img {
+  width: 20px; /* Adjust the size as needed */
+  height: 20px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+
+.favorite:hover {
+  transform: scale(1.2);
+  color: #f44336; /* Red color for the heart icon */
+}

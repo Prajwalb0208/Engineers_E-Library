@@ -1,0 +1,55 @@
+.app-container {
+    display: flex;
+    height: 100vh;
+  }
+  
+  .sidebar {
+    flex: 3;
+    background-color: #f8f9fa; /* Light gray for sidebar */
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1); /* Slight shadow for sidebar */
+  }
+  
+  .sidebar h2 {
+    margin-bottom: 2px;
+    color: #007bff; /* Blue for headings */
+  }
+  
+  .sidebar ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .sidebar ul li {
+    padding: 10px 0;
+    cursor: pointer;
+    color: #343a40; /* Dark gray for text */
+  }
+  
+  .sidebar ul li:hover {
+    color: #007bff; /* Blue on hover */
+  }
+  
+  .logout-button {
+    padding: 10px 20px;
+    background-color: #dc3545; /* Red for logout */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .logout-button:hover {
+    background-color: #c82333; /* Darker red on hover */
+  }
+  
+  .main-content {
+    flex: 7;
+    padding: 20px;
+    background-color: white; /* White for main content */
+    overflow-y: auto;
+  }
+  
