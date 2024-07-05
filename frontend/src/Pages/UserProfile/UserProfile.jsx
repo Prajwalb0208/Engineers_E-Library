@@ -4,28 +4,28 @@ import './UserProfile.css';
 const Profile = () => (
   <div>
     <h1>My Profile</h1>
-    <p>Profile content goes here...</p>
+    <p>Profile content goes here</p>
   </div>
 );
 
 const Favourites = () => (
   <div>
     <h1>My Favourites</h1>
-    <p>Favourites content goes here...</p>
+    <p>Favourites content goes here</p>
   </div>
 );
 
 const Orders = () => (
   <div>
     <h1>My Orders</h1>
-    <p>Orders content goes here...</p>
+    <p>Orders content goes here</p>
   </div>
 );
 
 const Books = () => (
   <div>
     <h1>My Books</h1>
-    <p>Books content goes here...</p>
+    <p>Books content goes here</p>
   </div>
 );
 
