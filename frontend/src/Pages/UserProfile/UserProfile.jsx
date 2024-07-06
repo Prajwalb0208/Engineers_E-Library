@@ -2,9 +2,34 @@ import React, { useState } from 'react';
 import './UserProfile.css';
 
 const Profile = () => (
-  <div>
-    <h1>My Profile</h1>
-    <p>Profile content goes here</p>
+  <div className="profile-container">
+    <div className="profile-header">
+      <h1>My Profile</h1>
+      <img src="https://via.placeholder.com/150" alt="Profile" className="profile-photo" />
+    </div>
+    <div className="profile-content">
+      <div className="profile-field">
+        <label>Name:</label>
+        <input type="text" defaultValue="John Doe" />
+      </div>
+      <div className="profile-field">
+        <label>Date of Birth:</label>
+        <input type="date" defaultValue="1990-01-01" />
+      </div>
+      <div className="profile-field">
+        <label>Phone Number:</label>
+        <input type="tel" defaultValue="+1234567890" />
+      </div>
+      <div className="profile-field">
+        <label>Email ID:</label>
+        <input type="email" defaultValue="john.doe@example.com" />
+      </div>
+      <div className="profile-field">
+        <label>Password:</label>
+        <input type="password" defaultValue="password" />
+      </div>
+      <button className="save-button">Save Changes</button>
+    </div>
   </div>
 );
 
@@ -50,7 +75,7 @@ const UserProfile = () => {
   return (
     <div className="app-container">
       <div className="sidebar">
-        <h2>My Dashboard</h2>
+        <h3>My Dashboard</h3>
         <ul>
           <li onClick={() => setActivePage('Profile')}>My Profile</li>
           <li onClick={() => setActivePage('Favourites')}>My Favourites</li>
