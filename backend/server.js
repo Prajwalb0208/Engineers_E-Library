@@ -17,7 +17,7 @@ connectDB();
 
 //api endpoints
 app.use("/api/book",bookRouter)
-app.use("/images",express.static('uploads   '))
+app.use("/images",express.static('uploads'))
 
 app.get("/",(req,res)=>{
     res.send("API working")

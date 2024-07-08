@@ -1,25 +1,21 @@
 import express from "express"
-import { addBook,listBook,removeBook } from "../controllers/bookController.js"
+import { addBook, listBook, removeBook } from "../controllers/bookController.js"
 import multer from "multer"
 
 const bookRouter = express.Router();
 
-//image storage engine
-
+// Image and PDF storage engine
 const storage = multer.diskStorage({
-    destination:"uploads",
-    filename:(req,file,cb)=>{
-        return cb(null,`${Date.now()}${file.originalname}`)
+    destination: "uploads",
+    filename: (req, file, cb) => {
+        return cb(null, `${Date.now()}${file.originalname}`)
     }
 })
 
-const upload =multer({storage:storage})
+const upload = multer({ storage: storage })
 
-bookRouter.post("/add",upload.single("bookcover"),addBook)
-bookRouter.get("/list",listBook)
-bookRouter.post("/remove",removeBook);
-
-
-
+bookRouter.post("/add", upload.fields([{ name: 'bookcover', maxCount: 1 }, { name: 'pdf', maxCount: 1 }]), addBook)
+bookRouter.get("/list", listBook)
+bookRouter.post("/remove", removeBook);
 
 export default bookRouter;

@@ -2,9 +2,9 @@ import bookModel from '../models/bookModel.js'
 import fs from 'fs'
 
 //add books
-
 const addBook = async(req,res)=>{
-    let image_filename = `${req.file.filename}`;
+    let image_filename = `${req.files.bookcover[0].filename}`;
+    let pdf_filename = `${req.files.pdf[0].filename}`;
 
     const book = new bookModel({
       title: req.body.title,
@@ -13,7 +13,8 @@ const addBook = async(req,res)=>{
       publisher: req.body.publisher,
       description: req.body.description,
       category: req.body.category,
-      bookcover:image_filename
+      bookcover: image_filename,
+      pdf: pdf_filename
     })
     try {
         await book.save();
@@ -40,6 +41,7 @@ const removeBook = async(req,res)=>{
     try {
         const book = await bookModel.findById(req.body.id);
         fs.unlink(`uploads/${book.bookcover}`, ()=>{})
+        fs.unlink(`uploads/${book.pdf}`, ()=>{}) // Also delete the PDF file
 
         await bookModel.findByIdAndDelete(req.body.id);
         res.json({success:true,message:"Book removed"})
