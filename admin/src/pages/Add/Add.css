@@ -1,83 +1,32 @@
-.add {
-    font-size: 16px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-  }
-  
-  .add form {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    max-width: 600px;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #f9f9f9;
-  }
-  
-  .add form p {
-    font-size: 1.2em;
-    font-weight: bold;
-  }
-  
-  .add-img-upload,
-  .add-pdf-upload {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .add-img-upload img,
-  .add-pdf-upload img {
-    width: 120px;
-    margin-bottom: 10px;
-  }
-  
-  .add-product-name,
-  .add-author,
-  .add-publisher,
-  .add-description,
-  .add-category,
-  .add-price {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .add-product-name input,
-  .add-author input,
-  .add-publisher input,
-  .add-description textarea,
-  .add-category select,
-  .add-price input {
-    padding: 8px;
-    font-size: 1em;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    outline: none;
-  }
-  
-  .add-description textarea {
-    resize: vertical;
-  }
-  
-  .add-submit {
-    display: flex;
-    justify-content: flex-end;
-  }
-  
-  .add-submit button {
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .add-submit button:hover {
-    background-color: #0056b3;
-  }
-  
+.add{
+  width: 70%;
+  margin-left: max(5vw,25px);
+  margin-top: 50px;
+  margin-bottom: 50px;
+  color: #6d6d6d;
+  font-size: 16px;
+}
+.add form{
+  gap:20px;
+}
+.add-img-upload img{
+  width: 120px;
+}  
+.add-pdf-upload img{
+  width: 120px;
+}
+.add-product-name, .add-author, .add-publisher, .add-description{
+  width: max(40%,280px);
+}
+.add-product-name input, .add-author input, .add-publisher input, .add-description textarea, .add-price input, .add-category select{
+  padding: 5px;
+}
+.add-submit button{
+  padding: 5px;
+  background-color: rgb(0, 0, 0);
+  color: white;
+  font-size: medium;
+  border: none;
+  max-width: 120px;
+  cursor: pointer;
+}
