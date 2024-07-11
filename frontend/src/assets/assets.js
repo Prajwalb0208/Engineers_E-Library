@@ -70,7 +70,7 @@ export const books = [
         description: "Comprehensive guide to artificial intelligence.",
         category: "Artificial Intelligence Engineering",
         pdf: "Artificalintelligence.pdf",
-        price: Math.floor(Math.random() * (20 - 5 + 1)) + 5
+        price: 15
     },
     {
         id: "2",
@@ -82,7 +82,7 @@ export const books = [
         publisher: "Wiley",
         category: "Computer Engineering",
         pdf: "OperatingSystem.pdf",
-        price: Math.floor(Math.random() * (20 - 5 + 1)) + 5
+        price: 5
     },
     {
         id: "3",
@@ -94,7 +94,7 @@ export const books = [
         description: "Introduction to data structure and Algorithm in C++",
         category: "Computer Engineering",
         pdf: "DataStructures.pdf",
-        price: Math.floor(Math.random() * (20 - 5 + 1)) + 5
+        price:18
     },
     {
         id: "4",
@@ -106,7 +106,7 @@ export const books = [
         description: "Introduction to C programming.",
         category: "Computer Engineering",
         pdf: "Cprogramming.pdf",
-        price: Math.floor(Math.random() * (20 - 5 + 1)) + 5
+        price: 12
     },
     {
         id: "5",
@@ -118,7 +118,7 @@ export const books = [
         description: "Introduction to Java programming language.",
         category: "Computer Engineering",
         pdf: "Java.pdf",
-        price: Math.floor(Math.random() * (20 - 5 + 1)) + 5
+        price: 14
     },
     {
         id: "6",
@@ -130,7 +130,7 @@ export const books = [
         publisher: "Pearson",
         category: "Robotics",
         pdf: "IntoductionTORobotics.pdf",
-        price: Math.floor(Math.random() * (20 - 5 + 1)) + 5
+        price:8
     },
     {
         id: "7",
@@ -142,7 +142,7 @@ export const books = [
         description: "In-depth concepts of electrical machinery.",
         category: "Electrical Engineering",
         pdf: "ElectricalMachinery.pdf",
-        price: Math.floor(Math.random() * (20 - 5 + 1)) + 5
+        price: 10
     },
     {
         id: "8",
@@ -154,7 +154,7 @@ export const books = [
         description: "Fundamental analysis of power systems.",
         category: "Electrical Engineering",
         pdf: "PowerSystemAnalysis.pdf",
-        price: Math.floor(Math.random() * (20 - 5 + 1)) + 5
+        price: 16
     },
     {
         id: "9",
@@ -166,7 +166,7 @@ export const books = [
         description: "Structural analysis of beams and other structures.",
         category: "Civil Engineering",
         pdf: "Structuralanaylsis.pdf",
-        price: Math.floor(Math.random() * (20 - 5 + 1)) + 5
+        price: 20
     },
     {
         id: "10",
@@ -178,7 +178,7 @@ export const books = [
         description: "In-depth concepts of thermodynamics.",
         category: "Mechanical Engineering",
         pdf: "Thermodynamics.pdf",
-        price: Math.floor(Math.random() * (20 - 5 + 1)) + 5
+        price: 15
     },
     {
         id: "11",
@@ -190,7 +190,7 @@ export const books = [
         description: "The concept of engineering mechanics dynamics.",
         category: "Mechanical Engineering",
         pdf: "Dynamics.pdf",
-        price: Math.floor(Math.random() * (20 - 5 + 1)) + 5
+        price:16
     },
     {
         id: "12",
@@ -202,6 +202,6 @@ export const books = [
         description: "Mechanics and Statics.",
         category: "Mechanical Engineering",
         pdf: "Statics.pdf",
-        price: Math.floor(Math.random() * (20 - 5 + 1)) + 5
+        price: 17
     }
 ];
