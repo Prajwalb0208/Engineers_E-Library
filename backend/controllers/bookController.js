@@ -14,7 +14,8 @@ const addBook = async(req,res)=>{
       description: req.body.description,
       category: req.body.category,
       bookcover: image_filename,
-      pdf: pdf_filename
+      pdf: pdf_filename,
+      price:req.body.price
     })
     try {
         await book.save();

@@ -9,6 +9,7 @@ const bookSchema = new mongoose.Schema({
   publisher: { type: String, required: true },
   description: { type: String, required: true },
   category: { type: String, required: true },
+  price:{type:Number, required:true},
 });
 
 const bookModel = mongoose.models.book || mongoose.model("Book", bookSchema);
