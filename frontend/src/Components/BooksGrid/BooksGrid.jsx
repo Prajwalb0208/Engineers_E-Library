@@ -54,6 +54,7 @@ const BooksGrid = () => {
               </div>
               <h2>{book.title}</h2>
               <img src={book.bookcover} alt={`Cover of ${book.title}`} />
+              <div className="price">{`$${book.price}`}</div>
               <div className="buttons">
                 <button className="add-to-cart">Add to Cart</button>
                 <button className="favorite">

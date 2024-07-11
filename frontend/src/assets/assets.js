@@ -69,7 +69,8 @@ export const books = [
         publisher: "Pearson",
         description: "Comprehensive guide to artificial intelligence.",
         category: "Artificial Intelligence Engineering",
-        pdf: "Artificalintelligence.pdf"
+        pdf: "Artificalintelligence.pdf",
+        price: Math.floor(Math.random() * (20 - 5 + 1)) + 5
     },
     {
         id: "2",
@@ -80,7 +81,8 @@ export const books = [
         description: "Introduction to operating systems.",
         publisher: "Wiley",
         category: "Computer Engineering",
-        pdf: "OperatingSystem.pdf"
+        pdf: "OperatingSystem.pdf",
+        price: Math.floor(Math.random() * (20 - 5 + 1)) + 5
     },
     {
         id: "3",
@@ -91,7 +93,8 @@ export const books = [
         bookcover: "../images/data.jpg",
         description: "Introduction to data structure and Algorithm in C++",
         category: "Computer Engineering",
-        pdf: "DataStructures.pdf"
+        pdf: "DataStructures.pdf",
+        price: Math.floor(Math.random() * (20 - 5 + 1)) + 5
     },
     {
         id: "4",
@@ -102,7 +105,8 @@ export const books = [
         publisher: "Wiley",
         description: "Introduction to C programming.",
         category: "Computer Engineering",
-        pdf: "Cprogramming.pdf"
+        pdf: "Cprogramming.pdf",
+        price: Math.floor(Math.random() * (20 - 5 + 1)) + 5
     },
     {
         id: "5",
@@ -113,7 +117,8 @@ export const books = [
         bookcover: "../images/Java.jpeg",
         description: "Introduction to Java programming language.",
         category: "Computer Engineering",
-        pdf: "Java.pdf"
+        pdf: "Java.pdf",
+        price: Math.floor(Math.random() * (20 - 5 + 1)) + 5
     },
     {
         id: "6",
@@ -124,7 +129,8 @@ export const books = [
         description: "Mechanics and control of robotics.",
         publisher: "Pearson",
         category: "Robotics",
-        pdf: "IntoductionTORobotics.pdf"
+        pdf: "IntoductionTORobotics.pdf",
+        price: Math.floor(Math.random() * (20 - 5 + 1)) + 5
     },
     {
         id: "7",
@@ -135,7 +141,8 @@ export const books = [
         bookcover: "../images/Electrical.jpg",
         description: "In-depth concepts of electrical machinery.",
         category: "Electrical Engineering",
-        pdf: "ElectricalMachinery.pdf"
+        pdf: "ElectricalMachinery.pdf",
+        price: Math.floor(Math.random() * (20 - 5 + 1)) + 5
     },
     {
         id: "8",
@@ -146,7 +153,8 @@ export const books = [
         bookcover: "../images/Power.jpg",
         description: "Fundamental analysis of power systems.",
         category: "Electrical Engineering",
-        pdf: "PowerSystemAnalysis.pdf"
+        pdf: "PowerSystemAnalysis.pdf",
+        price: Math.floor(Math.random() * (20 - 5 + 1)) + 5
     },
     {
         id: "9",
@@ -157,7 +165,8 @@ export const books = [
         bookcover: "../images/Structure.jpg",
         description: "Structural analysis of beams and other structures.",
         category: "Civil Engineering",
-        pdf: "Structuralanaylsis.pdf"
+        pdf: "Structuralanaylsis.pdf",
+        price: Math.floor(Math.random() * (20 - 5 + 1)) + 5
     },
     {
         id: "10",
@@ -168,7 +177,8 @@ export const books = [
         bookcover: "../images/Thermodynamics.jpg",
         description: "In-depth concepts of thermodynamics.",
         category: "Mechanical Engineering",
-        pdf: "Thermodynamics.pdf"
+        pdf: "Thermodynamics.pdf",
+        price: Math.floor(Math.random() * (20 - 5 + 1)) + 5
     },
     {
         id: "11",
@@ -179,7 +189,8 @@ export const books = [
         bookcover: "../images/Dynamics.png",
         description: "The concept of engineering mechanics dynamics.",
         category: "Mechanical Engineering",
-        pdf: "Dynamics.pdf"
+        pdf: "Dynamics.pdf",
+        price: Math.floor(Math.random() * (20 - 5 + 1)) + 5
     },
     {
         id: "12",
@@ -190,6 +201,7 @@ export const books = [
         bookcover: "../images/statics.jpeg",
         description: "Mechanics and Statics.",
         category: "Mechanical Engineering",
-        pdf: "Statics.pdf"
+        pdf: "Statics.pdf",
+        price: Math.floor(Math.random() * (20 - 5 + 1)) + 5
     }
 ];
