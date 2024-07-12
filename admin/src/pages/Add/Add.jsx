@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './Add.css';
 import { assets } from '../../assets/assets';
 import axios from "axios";
+import { toast } from 'react-toastify';
 
 const Add = () => {
   const url = "http://localhost:4000";
@@ -50,8 +51,9 @@ const Add = () => {
         });
         setBookcover(null);
         setPdf(null);
+        toast.success(response.data.message)
       } else {
-        console.error('Error adding book:', response.data.message);
+        toast.error(response.data.message);
       }
     } catch (error) {
       console.error('Error adding book:', error);
