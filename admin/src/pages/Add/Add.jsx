@@ -4,8 +4,7 @@ import { assets } from '../../assets/assets';
 import axios from "axios";
 import { toast } from 'react-toastify';
 
-const Add = () => {
-  const url = "http://localhost:4000";
+const Add = ({url}) => {
   const [bookcover, setBookcover] = useState(null);
   const [pdf, setPdf] = useState(null);
   const [data, setData] = useState({
