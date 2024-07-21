@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import SearchBar from '../Search/Search.jsx';
-import { books, assets } from '../../assets/assets.js';
 import BookInfo from '../BookInfo/BookInfo.jsx';
 import './BooksGrid.css';
+import {books,assets} from '../../assets/assets.js';
 
 const BooksGrid = () => {
+  const [books, setBooks] = useState([]);
   const [filteredBooks, setFilteredBooks] = useState([]);
   const [categories, setCategories] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
@@ -12,14 +13,25 @@ const BooksGrid = () => {
   const booksPerPage = 32; // Maximum books per page
 
   useEffect(() => {
-    const uniqueCategories = Array.from(new Set(books.map(book => book.category)));
-    setCategories(uniqueCategories);
-    setFilteredBooks(books);
+    // Fetch books from the backend API
+    fetch('http://localhost:4000/api/book/list')
+      .then(response => response.json())
+      .then(data => {
+        if (data.success) {
+          setBooks(data.data);
+          setFilteredBooks(data.data);
+          const uniqueCategories = Array.from(new Set(data.data.map(book => book.category)));
+          setCategories(uniqueCategories);
+        } else {
+          console.error('Failed to fetch books');
+        }
+      })
+      .catch(error => console.error('Error fetching books:', error));
   }, []);
 
   const handleSearch = (searchTerm, selectedCategory) => {
     let filteredResults = books.filter(book =>
-      book.title.toLowerCase().includes(searchTerm.toLowerCase()) &&
+      book.name.toLowerCase().includes(searchTerm.toLowerCase()) &&
       (selectedCategory === '' || book.category === selectedCategory)
     );
     setFilteredBooks(filteredResults);
@@ -48,12 +60,12 @@ const BooksGrid = () => {
       <div className="books-grid">
         {currentBooks.length > 0 ? (
           currentBooks.map((book) => (
-            <div key={book.id} className="book-card">
+            <div key={book._id} className="book-card">
               <div className="book-info">
                 <i className="info-icon" onClick={() => handleBookInfo(book)}>ℹ</i> {/* Info icon */}
               </div>
-              <h2>{book.title}</h2>
-              <img src={book.bookcover} alt={`Cover of ${book.title}`} />
+              <h2>{book.name}</h2>
+              <img src={`http://localhost:4000/uploads/${book.bookcover}`} alt={`Cover of ${book.name}`} />
               <div className="price">{`$${book.price}`}</div>
               <div className="buttons">
                 <button className="add-to-cart">Add to Cart</button>
@@ -82,11 +94,9 @@ const BooksGrid = () => {
 
 const Pagination = ({ booksPerPage, totalBooks, paginate, currentPage }) => {
   const pageNumbers = [];
-
   for (let i = 1; i <= Math.ceil(totalBooks / booksPerPage); i++) {
     pageNumbers.push(i);
   }
-
   return (
     <nav>
       <ul className='pagination'>

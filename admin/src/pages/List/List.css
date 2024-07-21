@@ -1,0 +1,92 @@
+/* Container for the entire list section */
+.list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-top: 20px;
+  }
+  
+  /* Title section for the list */
+  .list-table .title {
+    display: grid;
+    grid-template-columns: 0.5fr 2fr 1fr 1fr 0.5fr;
+    gap: 10px;
+    align-items: center;
+    padding: 12px 15px;
+    border: 1px solid #cacaca;
+    background-color: #f9f9f9;
+    font-size: 13px;
+    font-weight: bold;
+    text-align: center;
+  }
+  
+  /* Table row format */
+  .list-table-format {
+    display: grid;
+    grid-template-columns: 0.5fr 2fr 1fr 1fr 0.5fr;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 15px;
+    border: 1px solid #cacaca;
+    font-size: 13px;
+    text-align: center;
+  }
+  
+  /* Styling for the images */
+  .list-table-format img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 5px;
+  }
+  
+  /* Styling for the delete button */
+  .delete-button {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    font-size: 13px;
+  }
+  
+  /* Hover effect for the delete button */
+  .delete-button:hover {
+    background-color: darkred;
+  }
+  
+  /* Text styling inside the table */
+  .list-table-format p {
+    margin: 0;
+    font-size: 13px;
+    text-align: center;
+  }
+  
+  /* Adding some margin to the entire table */
+  .list-table {
+    width: 90%;
+    margin: auto;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .list-table-format, .list-table .title {
+      grid-template-columns: 0.5fr 1fr 1fr 1fr 0.5fr;
+      font-size: 11px;
+      padding: 10px;
+    }
+  
+    .list-table-format img {
+      width: 40px;
+      height: 40px;
+    }
+  
+    .delete-button {
+      padding: 3px 7px;
+      font-size: 11px;
+    }
+  }
+  

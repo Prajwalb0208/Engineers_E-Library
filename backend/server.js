@@ -3,7 +3,6 @@ import cors from "cors"
 import { connectDB } from "./config/db.js"
 import bookRouter from "./routes/bookRoute.js"
 
-
 //app config
 const app =express()
 const port = 4000
@@ -15,9 +14,10 @@ app.use(cors())
 //db connection
 connectDB();
 
+// static files middleware
+app.use('/uploads', express.static('uploads'));
 //api endpoints
 app.use("/api/book",bookRouter)
-app.use("/images",express.static('uploads'))
 
 app.get("/",(req,res)=>{
     res.send("API working")
