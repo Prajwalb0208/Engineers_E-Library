@@ -65,7 +65,7 @@ const BooksGrid = () => {
                 <i className="info-icon" onClick={() => handleBookInfo(book)}>ℹ</i> {/* Info icon */}
               </div>
               <h2>{book.name}</h2>
-              <img src={`http://localhost:4000/uploads/${book.bookcover}`} alt={`Cover of ${book.name}`} />
+              <img src={book.bookcover} alt={`Cover of ${book.name}`} />
               <div className="price">{`$${book.price}`}</div>
               <div className="buttons">
                 <button className="add-to-cart">Add to Cart</button>
