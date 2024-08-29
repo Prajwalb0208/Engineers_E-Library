@@ -1,5 +1,9 @@
-import React, { useState } from 'react';
-import './UserProfile.css';
+// src/Pages/UserProfile/UserProfile.jsx
+
+import React, { useState, useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { FavoriteContext } from '../../context/FavoriteContext';
+import './UserProfile.css'
 
 const Profile = () => (
   <div className="profile-container">
@@ -33,12 +37,26 @@ const Profile = () => (
   </div>
 );
 
-const Favourites = () => (
-  <div>
-    <h1>My Favourites</h1>
-    <p>Favourites content goes here</p>
-  </div>
-);
+const Favourites = () => {
+  const { favoriteBooks, removeFromFavorites } = useContext(FavoriteContext);
+  return (
+    <div>
+      <h1>My Favourites</h1>
+      {favoriteBooks.length > 0 ? (
+        <ul>
+          {favoriteBooks.map(book => (
+            <li key={book._id}>
+              {book.name}
+              <button onClick={() => removeFromFavorites(book._id)}>Remove</button>
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <p>No favourites yet!</p>
+      )}
+    </div>
+  );
+};
 
 const Orders = () => (
   <div>
@@ -54,8 +72,14 @@ const Books = () => (
   </div>
 );
 
-const UserProfile = () => {
+const UserProfile = ({ isLoggedIn, setIsLoggedIn }) => {
   const [activePage, setActivePage] = useState('Profile');
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    setIsLoggedIn(false);
+    navigate('/');
+  };
 
   const renderContent = () => {
     switch (activePage) {
@@ -73,18 +97,18 @@ const UserProfile = () => {
   };
 
   return (
-    <div className="app-container">
+    <div className="user-profile">
       <div className="sidebar">
-        <h3>My Dashboard</h3>
+        <h2>User Profile</h2>
         <ul>
-          <li onClick={() => setActivePage('Profile')}>My Profile</li>
-          <li onClick={() => setActivePage('Favourites')}>My Favourites</li>
-          <li onClick={() => setActivePage('Orders')}>My Orders</li>
-          <li onClick={() => setActivePage('Books')}>My Books</li>
+          <li onClick={() => setActivePage('Profile')}>Profile</li>
+          <li onClick={() => setActivePage('Favourites')}>Favourites</li>
+          <li onClick={() => setActivePage('Orders')}>Orders</li>
+          <li onClick={() => setActivePage('Books')}>Books</li>
         </ul>
-        <button className="logout-button">Logout</button>
+        <button className="logout-button" onClick={handleLogout}>Logout</button>
       </div>
-      <div className="main-content">
+      <div className="content">
         {renderContent()}
       </div>
     </div>

@@ -1,6 +1,15 @@
-.app-container {
+/* src/Pages/UserProfile/UserProfile.css */
+
+.user-profile {
   display: flex;
   height: 100vh;
+}
+
+.content {
+  flex: 7;
+  padding: 20px;
+  background-color: #ffffff; /* White background for content */
+  overflow-y: auto; /* Allows content to scroll if necessary */
 }
 
 .sidebar {
@@ -10,12 +19,12 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  box-shadow: 2px 0 5px rgba(0,0,0,0.1); /* Slight shadow for sidebar */
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1); /* Shadow on the left side of sidebar */
 }
 
-.sidebar h3 {
-  margin-bottom: 2px;
-  color: #007bff; /* Blue for headings */
+.sidebar h2 {
+  color: #007bff; /* Blue color for sidebar heading */
+  margin-bottom: 20px;
 }
 
 .sidebar ul {
@@ -26,31 +35,25 @@
 .sidebar ul li {
   padding: 10px 0;
   cursor: pointer;
-  color: #343a40; /* Dark gray for text */
+  color: #343a40; /* Dark gray color for sidebar list items */
 }
 
 .sidebar ul li:hover {
-  color: #007bff; /* Blue on hover */
+  color: #007bff; /* Blue color on hover */
 }
 
 .logout-button {
   padding: 10px 20px;
-  background-color: #dc3545; /* Red for logout */
+  background-color: #dc3545; /* Red color for logout button */
   color: white;
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  margin-top: auto; /* Pushes the button to the bottom */
 }
 
 .logout-button:hover {
   background-color: #c82333; /* Darker red on hover */
-}
-
-.main-content {
-  flex: 7;
-  padding: 20px;
-  background-color: white; /* White for main content */
-  overflow-y: auto;
 }
 
 .profile-container {
@@ -93,7 +96,7 @@
 
 .save-button {
   padding: 10px 20px;
-  background-color: #28a745; /* Green for save button */
+  background-color: #28a745; /* Green color for save button */
   color: white;
   border: none;
   border-radius: 5px;

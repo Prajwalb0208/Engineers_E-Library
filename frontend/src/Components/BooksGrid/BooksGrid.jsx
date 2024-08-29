@@ -1,19 +1,22 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import SearchBar from '../Search/Search.jsx';
 import BookInfo from '../BookInfo/BookInfo.jsx';
 import './BooksGrid.css';
-import {books,assets} from '../../assets/assets.js';
+import { assets } from '../../assets/assets.js';
+import { FavoriteContext } from '../../context/FavoriteContext';
 
-const BooksGrid = () => {
+const BooksGrid = ({ addToCart }) => {
   const [books, setBooks] = useState([]);
   const [filteredBooks, setFilteredBooks] = useState([]);
   const [categories, setCategories] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [selectedBook, setSelectedBook] = useState(null);
-  const booksPerPage = 32; // Maximum books per page
+  const booksPerPage = 12; // Maximum books per page
+
+  const { addToFavorites } = useContext(FavoriteContext);
+  
 
   useEffect(() => {
-    // Fetch books from the backend API
     fetch('http://localhost:4000/api/book/list')
       .then(response => response.json())
       .then(data => {
@@ -52,7 +55,10 @@ const BooksGrid = () => {
   const currentBooks = filteredBooks.slice(indexOfFirstBook, indexOfLastBook);
 
   // Change page
-  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+  const paginate = (pageNumber) => {
+    setCurrentPage(pageNumber);
+    window.scrollTo(0,1);
+  };
 
   return (
     <div id='books-grid'>
@@ -68,8 +74,8 @@ const BooksGrid = () => {
               <img src={book.bookcover} alt={`Cover of ${book.name}`} />
               <div className="price">{`$${book.price}`}</div>
               <div className="buttons">
-                <button className="add-to-cart">Add to Cart</button>
-                <button className="favorite">
+                <button className="add-to-cart" onClick={() => addToCart(book)}>Add to Cart</button>
+                <button className="favorite" onClick={() => addToFavorites(book)}>
                   <img src={assets.heart} alt="Favorite" /> {/* Heart-shaped favorite icon */}
                 </button>
               </div>
@@ -97,6 +103,7 @@ const Pagination = ({ booksPerPage, totalBooks, paginate, currentPage }) => {
   for (let i = 1; i <= Math.ceil(totalBooks / booksPerPage); i++) {
     pageNumbers.push(i);
   }
+
   return (
     <nav>
       <ul className='pagination'>

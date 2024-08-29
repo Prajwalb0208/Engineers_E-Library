@@ -69,7 +69,6 @@ export const books = [
         publisher: "Pearson",
         description: "Comprehensive guide to artificial intelligence.",
         category: "Artificial Intelligence Engineering",
-        pdf: "Artificalintelligence.pdf",
         price: 15
     },
     {
@@ -81,7 +80,6 @@ export const books = [
         description: "Introduction to operating systems.",
         publisher: "Wiley",
         category: "Computer Engineering",
-        pdf: "OperatingSystem.pdf",
         price: 5
     },
     {
@@ -93,7 +91,6 @@ export const books = [
         bookcover: "../images/data.jpg",
         description: "Introduction to data structure and Algorithm in C++",
         category: "Computer Engineering",
-        pdf: "DataStructures.pdf",
         price:18
     },
     {
@@ -105,7 +102,6 @@ export const books = [
         publisher: "Wiley",
         description: "Introduction to C programming.",
         category: "Computer Engineering",
-        pdf: "Cprogramming.pdf",
         price: 12
     },
     {
@@ -117,7 +113,6 @@ export const books = [
         bookcover: "../images/Java.jpeg",
         description: "Introduction to Java programming language.",
         category: "Computer Engineering",
-        pdf: "Java.pdf",
         price: 14
     },
     {
@@ -129,7 +124,6 @@ export const books = [
         description: "Mechanics and control of robotics.",
         publisher: "Pearson",
         category: "Robotics",
-        pdf: "IntoductionTORobotics.pdf",
         price:8
     },
     {
@@ -141,7 +135,6 @@ export const books = [
         bookcover: "../images/Electrical.jpg",
         description: "In-depth concepts of electrical machinery.",
         category: "Electrical Engineering",
-        pdf: "ElectricalMachinery.pdf",
         price: 10
     },
     {
@@ -153,7 +146,6 @@ export const books = [
         bookcover: "../images/Power.jpg",
         description: "Fundamental analysis of power systems.",
         category: "Electrical Engineering",
-        pdf: "PowerSystemAnalysis.pdf",
         price: 16
     },
     {
@@ -165,7 +157,6 @@ export const books = [
         bookcover: "../images/Structure.jpg",
         description: "Structural analysis of beams and other structures.",
         category: "Civil Engineering",
-        pdf: "Structuralanaylsis.pdf",
         price: 20
     },
     {
@@ -177,7 +168,6 @@ export const books = [
         bookcover: "../images/Thermodynamics.jpg",
         description: "In-depth concepts of thermodynamics.",
         category: "Mechanical Engineering",
-        pdf: "Thermodynamics.pdf",
         price: 15
     },
     {
@@ -189,7 +179,6 @@ export const books = [
         bookcover: "../images/Dynamics.png",
         description: "The concept of engineering mechanics dynamics.",
         category: "Mechanical Engineering",
-        pdf: "Dynamics.pdf",
         price:16
     },
     {
@@ -201,7 +190,6 @@ export const books = [
         bookcover: "../images/statics.jpeg",
         description: "Mechanics and Statics.",
         category: "Mechanical Engineering",
-        pdf: "Statics.pdf",
         price: 17
     }
 ];
