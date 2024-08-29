@@ -1,9 +1,12 @@
-import React from 'react';
+import { React , useState } from 'react';
 import './Navbar.css';
 import { assets } from '../../assets/assets';
 import { Link } from 'react-router-dom';
 
 const Navbar = ({ setShowLogin, isLoggedIn }) => {
+
+  const [menu, setMenu] = useState("home");
+
 
   return (
     <div className="navbar">
@@ -11,9 +14,10 @@ const Navbar = ({ setShowLogin, isLoggedIn }) => {
         <img src={assets.logo} alt="" className="logo" />
       </Link>
       <ul className="navbar-menu">
-        <Link to='/' onClick={() => handleLinkClick("home")}>Home</Link>
-        <li onClick={() => handleLinkClick('all-books')}>All Books</li>
-        <li onClick={() => handleLinkClick('contact-us')}>Contact Us</li>
+        <Link to='/' onClick={() => setMenu("home")}>Home</Link>
+        <a href= '#books-grid' onClick={()=>setMenu("books-grid")} >All Books</a>
+        <a href='#app-download' onClick={() => setMenu("mob-app")} className={`${menu === "mob-app" ? "active" : ""}`}>Mobile app</a>
+        <a href='#footer' onClick={() => setMenu("contact")} className={`${menu === "contact" ? "active" : ""}`}>Contact Us</a>
         <Link to='/cart' onClick={() => handleLinkClick('check-out')}>Check Out</Link>
       </ul>
       <div className="navbar-right">
