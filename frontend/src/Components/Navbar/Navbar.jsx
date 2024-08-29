@@ -18,7 +18,7 @@ const Navbar = ({ setShowLogin, isLoggedIn }) => {
         <a href= '#books-grid' onClick={()=>setMenu("books-grid")} >All Books</a>
         <a href='#app-download' onClick={() => setMenu("mob-app")} className={`${menu === "mob-app" ? "active" : ""}`}>Mobile app</a>
         <a href='#footer' onClick={() => setMenu("contact")} className={`${menu === "contact" ? "active" : ""}`}>Contact Us</a>
-        <Link to='/cart' onClick={() => handleLinkClick('check-out')}>Check Out</Link>
+        <Link to='/cart' onClick={() => handleLinkClick('check-out')}>My Cart</Link>
       </ul>
       <div className="navbar-right">
         {isLoggedIn ? (

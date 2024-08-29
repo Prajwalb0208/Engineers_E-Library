@@ -1,8 +1,7 @@
 import React from 'react';
-import './Cart.css';
 
 const Cart = ({ cartItems }) => {
-  const totalAmount = cartItems.reduce((acc, item) => acc + item.price, 0);
+  const totalAmount = cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0);
 
   return (
     <div className="cart-container">
@@ -13,12 +12,12 @@ const Cart = ({ cartItems }) => {
             {cartItems.map(item => (
               <li key={item._id}>
                 <span>{item.name}</span>
-                <span>{`$${item.price}`}</span>
+                <span>{`$${item.price} x ${item.quantity}`}</span>
               </li>
             ))}
           </ul>
           <div className="total">
-            <h2>Total: ${totalAmount}</h2>
+            <h2>Total: ${totalAmount.toFixed(2)}</h2>
           </div>
           <button className="checkout-button">Proceed to Checkout</button>
         </div>

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect, useContext, useRef } from 'react';
 import SearchBar from '../Search/Search.jsx';
 import BookInfo from '../BookInfo/BookInfo.jsx';
 import './BooksGrid.css';
@@ -14,7 +14,7 @@ const BooksGrid = ({ addToCart }) => {
   const booksPerPage = 12; // Maximum books per page
 
   const { addToFavorites } = useContext(FavoriteContext);
-  
+  const searchBarRef = useRef(null);
 
   useEffect(() => {
     fetch('http://localhost:4000/api/book/list')
@@ -57,12 +57,14 @@ const BooksGrid = ({ addToCart }) => {
   // Change page
   const paginate = (pageNumber) => {
     setCurrentPage(pageNumber);
-    window.scrollTo(0,1);
+    if (searchBarRef.current) {
+      searchBarRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
   };
 
   return (
     <div id='books-grid'>
-      <SearchBar categories={categories} onSearch={handleSearch} />
+      <SearchBar ref={searchBarRef} categories={categories} onSearch={handleSearch} />
       <div className="books-grid">
         {currentBooks.length > 0 ? (
           currentBooks.map((book) => (
