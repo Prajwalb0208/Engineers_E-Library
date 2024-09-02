@@ -1,43 +1,58 @@
-// src/context/FavoriteContext.jsx
-
 import React, { createContext, useState, useEffect } from 'react';
+import { getAuth } from 'firebase/auth';
+import { db } from '../../../backend/config/firebase';
+import { doc, getDoc, setDoc } from 'firebase/firestore';
 
-// Create a context for managing favorites
 export const FavoriteContext = createContext();
 
 export const FavoriteProvider = ({ children }) => {
-  const [favoriteBooks, setFavoriteBooks] = useState([]);
+  const auth = getAuth();
+  const [user, setUser] = useState(auth.currentUser); // Ensure user is tracked
+  const [favorites, setFavorites] = useState([]);
 
-  // Load favorites from localStorage on initial render
   useEffect(() => {
-    const storedFavorites = JSON.parse(localStorage.getItem('favorites')) || [];
-    setFavoriteBooks(storedFavorites);
-  }, []);
+    const fetchFavorites = async () => {
+      if (user) {
+        const userDocRef = doc(db, 'Favourites', user.uid);
+        const userDocSnap = await getDoc(userDocRef);
+        if (userDocSnap.exists()) {
+          setFavorites(userDocSnap.data().items || []);
+        } else {
+          setFavorites([]); // Initialize as empty array if no data
+        }
+      } else {
+        setFavorites([]); // Initialize as empty array if no user
+      }
+    };
+    fetchFavorites();
+  }, [user]);
 
-  // Save favorites to localStorage whenever the favorites change
   useEffect(() => {
-    localStorage.setItem('favorites', JSON.stringify(favoriteBooks));
-  }, [favoriteBooks]);
-
-  // Function to add a book to favorites
-  const addToFavorites = (book) => {
-    const isFavorite = favoriteBooks.some(favoriteBook => favoriteBook._id === book._id);
-    if (isFavorite) {
-      alert('This book is already in your favorites!');
-    } else {
-      setFavoriteBooks([...favoriteBooks, book]);
-      alert(`${book.name} has been added to your favorites!`);
+    if (user) {
+      const updateFavorites = async () => {
+        const userDocRef = doc(db, 'Favourites', user.uid);
+        await setDoc(userDocRef, { items: favorites }, { merge: true });
+      };
+      updateFavorites();
     }
+  }, [favorites, user]);
+
+  const addToFavorites = (item) => {
+    setFavorites(prevItems => {
+      const existingItem = prevItems.find(i => i._id === item._id);
+      if (!existingItem) {
+        return [...prevItems, item];
+      }
+      return prevItems;
+    });
   };
 
-  // Function to remove a book from favorites
-  const removeFromFavorites = (bookId) => {
-    const updatedFavorites = favoriteBooks.filter(book => book._id !== bookId);
-    setFavoriteBooks(updatedFavorites);
+  const removeFromFavorites = (itemId) => {
+    setFavorites(prevItems => prevItems.filter(item => item._id !== itemId));
   };
 
   return (
-    <FavoriteContext.Provider value={{ favoriteBooks, addToFavorites, removeFromFavorites }}>
+    <FavoriteContext.Provider value={{ favorites, addToFavorites, removeFromFavorites }}>
       {children}
     </FavoriteContext.Provider>
   );

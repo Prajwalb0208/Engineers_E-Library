@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, forwardRef } from 'react';
 import './Search.css';
 
-const SearchBar = ({ categories, onSearch }) => {
+const SearchBar = forwardRef(({ categories, onSearch }, ref) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('');
 
@@ -12,7 +12,7 @@ const SearchBar = ({ categories, onSearch }) => {
   };
 
   return (
-    <div className="search-bar-container">
+    <div ref={ref} className="search-bar-container">
       <input
         className="search-input"
         type="text"
@@ -39,6 +39,6 @@ const SearchBar = ({ categories, onSearch }) => {
       </button>
     </div>
   );
-};
+});
 
 export default SearchBar;

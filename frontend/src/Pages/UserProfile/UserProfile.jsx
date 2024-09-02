@@ -1,5 +1,3 @@
-// src/Pages/UserProfile/UserProfile.jsx
-
 import React, { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FavoriteContext } from '../../context/FavoriteContext';

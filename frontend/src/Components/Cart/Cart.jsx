@@ -1,29 +1,28 @@
 import React from 'react';
+// import './Cart.css';
 
-const Cart = ({ cartItems }) => {
+const Cart = ({ cartItems, removeFromCart }) => {
   const totalAmount = cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0);
 
   return (
     <div className="cart-container">
       <h1>Your Cart</h1>
-      {cartItems.length > 0 ? (
-        <div>
-          <ul>
-            {cartItems.map(item => (
-              <li key={item._id}>
-                <span>{item.name}</span>
-                <span>{`$${item.price} x ${item.quantity}`}</span>
-              </li>
-            ))}
-          </ul>
-          <div className="total">
-            <h2>Total: ${totalAmount.toFixed(2)}</h2>
-          </div>
-          <button className="checkout-button">Proceed to Checkout</button>
-        </div>
+      {cartItems.length === 0 ? (
+        <p>No items in cart</p>
       ) : (
-        <p>Your cart is empty</p>
+        cartItems.map(item => (
+          <div key={item._id} className="cart-item">
+            <img src={item.image} alt={item.name} />
+            <div>
+              <h2>{item.name}</h2>
+              <p>Price: ${item.price}</p>
+              <p>Quantity: {item.quantity}</p>
+              {removeFromCart && <button onClick={() => removeFromCart(item._id)}>Remove</button>}
+            </div>
+          </div>
+        ))
       )}
+      <h2>Total Amount: ${totalAmount.toFixed(2)}</h2>
     </div>
   );
 };
