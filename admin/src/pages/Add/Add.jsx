@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import './Add.css';
 import { assets } from '../../assets/assets';
-import axios from "axios";
+import axios from 'axios';
 import { toast } from 'react-toastify';
 
-const Add = ({url}) => {
+const Add = ({ url }) => {
   const [bookcover, setBookcover] = useState(null);
   const [pdf, setPdf] = useState(null);
   const [data, setData] = useState({
@@ -50,7 +50,7 @@ const Add = ({url}) => {
         });
         setBookcover(null);
         setPdf(null);
-        toast.success(response.data.message)
+        toast.success(response.data.message);
       } else {
         toast.error(response.data.message);
       }
@@ -66,16 +66,16 @@ const Add = ({url}) => {
           <div className="add-img-upload">
             <p>Upload Image</p>
             <label htmlFor="bookcover">
-              <img src={bookcover ? URL.createObjectURL(bookcover) : assets.upload_area} alt="Upload" required />
+              <img src={bookcover ? URL.createObjectURL(bookcover) : assets.upload_area} alt="Upload" />
             </label>
-            <input onChange={(e) => setBookcover(e.target.files[0])} type="file" id='bookcover' hidden required />
+            <input onChange={(e) => setBookcover(e.target.files[0])} type="file" id='bookcover' hidden />
           </div>
           <div className="add-pdf-upload">
             <p>Upload Book</p>
             <label htmlFor="pdf">
-              <img src={pdf ? URL.createObjectURL(pdf) : assets.upload_area} alt="Upload" required />
+              <img src={pdf ? URL.createObjectURL(pdf) : assets.upload_area} alt="Upload" />
             </label>
-            <input onChange={(e) => setPdf(e.target.files[0])} type="file" id='pdf' hidden required />
+            <input onChange={(e) => setPdf(e.target.files[0])} type="file" id='pdf' hidden />
           </div>
         </div>
         <div className="add-product-name flex-col">
@@ -118,7 +118,7 @@ const Add = ({url}) => {
         </div>
       </form>
     </div>
-  )
+  );
 }
 
 export default Add;

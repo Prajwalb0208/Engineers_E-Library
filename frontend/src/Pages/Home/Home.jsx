@@ -7,14 +7,14 @@ import { CartContext } from '../../context/CartContext';
 import Cart from '../../Components/Cart/Cart';
 
 const Home = () => {
-  const { addToCart,cartItems } = useContext(CartContext);
+  const { addToCart, cartItems, removeFromCart } = useContext(CartContext);
 
   return (
     <div>
       <Header />
       <BooksGrid addToCart={addToCart} />
       <AppDownload />
-      <Cart cartItems={cartItems}/>
+      <Cart cartItems={cartItems} removeFromCart={removeFromCart} />
     </div>
   );
 };

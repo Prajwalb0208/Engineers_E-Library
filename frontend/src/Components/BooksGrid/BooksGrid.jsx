@@ -4,6 +4,7 @@ import BookInfo from '../BookInfo/BookInfo.jsx';
 import './BooksGrid.css';
 import { assets } from '../../assets/assets.js';
 import { FavoriteContext } from '../../context/FavoriteContext';
+import { CartContext } from '../../context/CartContext'; // Import CartContext
 
 const BooksGrid = ({ addToCart }) => {
   const [books, setBooks] = useState([]);
@@ -11,9 +12,11 @@ const BooksGrid = ({ addToCart }) => {
   const [categories, setCategories] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [selectedBook, setSelectedBook] = useState(null);
+  const [cartItems, setCartItems] = useState([]); // State to track cart items
   const booksPerPage = 12; // Maximum books per page
 
   const { addToFavorites } = useContext(FavoriteContext);
+  const { cartItems: cartItemsFromContext } = useContext(CartContext); // Get cart items from context
   const searchBarRef = useRef(null);
 
   useEffect(() => {
@@ -31,6 +34,10 @@ const BooksGrid = ({ addToCart }) => {
       })
       .catch(error => console.error('Error fetching books:', error));
   }, []);
+
+  useEffect(() => {
+    setCartItems(cartItemsFromContext); // Update cartItems state when context changes
+  }, [cartItemsFromContext]);
 
   const handleSearch = (searchTerm, selectedCategory) => {
     let filteredResults = books.filter(book =>
@@ -62,6 +69,11 @@ const BooksGrid = ({ addToCart }) => {
     }
   };
 
+  // Check if a book is in the cart
+  const isInCart = (bookId) => {
+    return cartItems.some(item => item._id === bookId);
+  };
+
   return (
     <div id='books-grid'>
       <SearchBar ref={searchBarRef} categories={categories} onSearch={handleSearch} />
@@ -73,10 +85,15 @@ const BooksGrid = ({ addToCart }) => {
                 <i className="info-icon" onClick={() => handleBookInfo(book)}>ℹ</i> {/* Info icon */}
               </div>
               <h2>{book.name}</h2>
-              <img src={book.bookcover} alt={`Cover of ${book.name}`} />
+              <img src={`http://localhost:4000/uploads/${book.bookcover}`} alt={`Cover of ${book.name}`} /> 
               <div className="price">{`$${book.price}`}</div>
               <div className="buttons">
-                <button className="add-to-cart" onClick={() => addToCart(book)}>Add to Cart</button>
+                <button 
+                  className={`add-to-cart ${isInCart(book._id) ? 'in-cart' : ''}`} 
+                  onClick={() => addToCart(book)}
+                >
+                  {isInCart(book._id) ? 'Already in Cart' : 'Add to Cart'}
+                </button>
                 <button className="favorite" onClick={() => addToFavorites(book)}>
                   <img src={assets.heart} alt="Favorite" /> {/* Heart-shaped favorite icon */}
                 </button>

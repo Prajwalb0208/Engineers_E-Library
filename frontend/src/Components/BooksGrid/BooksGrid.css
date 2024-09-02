@@ -1,8 +1,10 @@
+/* Title styling for the grid */
 #books-grid h2 {
   font-size: 24.5px;
   margin-bottom: 8px;
 }
 
+/* Grid container for books */
 .books-grid {
   display: flex;
   flex-wrap: wrap;
@@ -11,6 +13,7 @@
   padding: 2px 2px;
 }
 
+/* Book card styling */
 .book-card {
   position: relative;
   flex: 1 1 calc(23% - 20px); /* 4 books per row, adjusted size */
@@ -28,6 +31,7 @@
   height: 380px; /* Fixed height to ensure consistency */
 }
 
+/* Title inside book card */
 .book-card h2 {
   font-size: 1.2em;
   margin-bottom: 6px;
@@ -37,6 +41,7 @@
   white-space: nowrap;
 }
 
+/* Book cover image */
 .book-card img {
   width: 150px;
   height: 200px;
@@ -44,10 +49,12 @@
   margin: 0 auto 15px auto; /* Center the image horizontally and add margin at the bottom */
 }
 
+/* Styling for book card paragraph */
 .book-card p {
   margin: 4px 0;
 }
 
+/* Book info icon */
 .book-info {
   position: absolute;
   top: 6px;
@@ -60,6 +67,7 @@
   cursor: pointer;
 }
 
+/* Price tag styling */
 .price {
   position: absolute;
   bottom: 12px;
@@ -74,12 +82,14 @@
   font-weight: bold;
 }
 
+/* Buttons container */
 .buttons {
   display: flex;
   justify-content: center;
   margin-top: auto; /* Push buttons to the bottom */
 }
 
+/* Add to Cart button styling */
 .add-to-cart {
   background-color: #0075ea;
   color: white;
@@ -97,6 +107,17 @@
   transform: scale(1.05);
 }
 
+/* Add to Cart button when item is already in the cart */
+.add-to-cart.in-cart {
+  background-color: #6c757d;
+  cursor: not-allowed;
+}
+
+.add-to-cart.in-cart:hover {
+  background-color: #5a6268;
+}
+
+/* Favorite button styling */
 .favorite {
   background-color: transparent;
   border: none;
@@ -127,6 +148,7 @@
   list-style: none;
   gap: 8px;
 }
+
 .page-item {
   margin: 0 5px; /* Spacing between pagination items */
 }

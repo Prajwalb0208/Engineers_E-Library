@@ -1,8 +1,8 @@
 import React from 'react';
-// import './Cart.css';
+import './Cart.css';
 
 const Cart = ({ cartItems, removeFromCart }) => {
-  const totalAmount = cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0);
+  const totalAmount = cartItems.reduce((acc, item) => acc + item.price, 0);
 
   return (
     <div className="cart-container">
@@ -12,12 +12,11 @@ const Cart = ({ cartItems, removeFromCart }) => {
       ) : (
         cartItems.map(item => (
           <div key={item._id} className="cart-item">
-            <img src={item.image} alt={item.name} />
+            <img src={`http://localhost:4000/uploads/${item.bookcover}`} alt={item.name} />
             <div>
               <h2>{item.name}</h2>
               <p>Price: ${item.price}</p>
-              <p>Quantity: {item.quantity}</p>
-              {removeFromCart && <button onClick={() => removeFromCart(item._id)}>Remove</button>}
+              <button className="remove-button" onClick={() => removeFromCart(item._id)}>Remove</button>
             </div>
           </div>
         ))
