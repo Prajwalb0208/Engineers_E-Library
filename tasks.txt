@@ -1,10 +1,7 @@
 Cart Page
 Styling for all pages and Some New Components
-Toastify notification instead of alert for add to fav and add to Cart
-Integrate Firebase
+Firebase Login Done : Username test@gmail.com password:12345678
 PopUp Login page if not logged in and try to go to any other pages
 Add Stripe.js for Checkout
 In admin panel:Approve order and make it notified on email 
 Allow user to download pdf after purchase
-
-Get bookcover and pdf and store it in uploads folder for easy access to homepage and during pdf download
